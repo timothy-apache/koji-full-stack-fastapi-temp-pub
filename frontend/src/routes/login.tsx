@@ -1,4 +1,4 @@
-import { Container, Image, Input, Text } from "@chakra-ui/react"
+import { Container, Flex, Image, Input, Text } from "@chakra-ui/react"
 import {
   Link as RouterLink,
   createFileRoute,
@@ -56,60 +56,84 @@ function Login() {
 
   return (
     <>
-      <Container
-        as="form"
-        onSubmit={handleSubmit(onSubmit)}
-        h="100vh"
-        maxW="sm"
-        alignItems="stretch"
-        justifyContent="center"
-        gap={4}
-        centerContent
-      >
-        <Image
-          src={Logo}
-          alt="FastAPI logo"
-          height="auto"
-          maxW="2xs"
-          alignSelf="center"
-          mb={4}
-        />
-        <Field
-          invalid={!!errors.username}
-          errorText={errors.username?.message || !!error}
+      <Flex flexDir={{ base: "column", md: "row" }} justify="center" h="100vh">
+        <Container
+          as="form"
+          onSubmit={handleSubmit(onSubmit)}
+          h="100vh"
+          maxW="sm"
+          alignItems="stretch"
+          justifyContent="center"
+          gap={4}
+          centerContent
         >
-          <InputGroup w="100%" startElement={<FiMail />}>
-            <Input
-              id="username"
-              {...register("username", {
-                required: "Username is required",
-                pattern: emailPattern,
-              })}
-              placeholder="Email"
-              type="email"
-            />
-          </InputGroup>
-        </Field>
-        <PasswordInput
-          type="password"
-          startElement={<FiLock />}
-          {...register("password", passwordRules())}
-          placeholder="Password"
-          errors={errors}
-        />
-        <RouterLink to="/recover-password" className="main-link">
-          Forgot Password?
-        </RouterLink>
-        <Button variant="solid" type="submit" loading={isSubmitting} size="md">
-          Log In
-        </Button>
-        <Text>
-          Don't have an account?{" "}
-          <RouterLink to="/signup" className="main-link">
-            Sign Up
-          </RouterLink>
-        </Text>
-      </Container>
+          <Image
+            src={Logo}
+            alt="FastAPI logo"
+            height="auto"
+            maxW="2xs"
+            alignSelf="center"
+            mb={4}
+          />
+          <Field
+            invalid={!!errors.username}
+            errorText={errors.username?.message || !!error}
+          >
+            <InputGroup w="100%" startElement={<FiMail />}>
+              <Input
+                id="username"
+                {...register("username", {
+                  required: "Username is required",
+                  pattern: emailPattern,
+                })}
+                placeholder="Email"
+                type="email"
+              />
+            </InputGroup>
+          </Field>
+          <PasswordInput
+            type="password"
+            startElement={<FiLock />}
+            {...register("password", passwordRules())}
+            placeholder="Password"
+            errors={errors}
+          />
+          <Button variant="solid" type="submit" loading={isSubmitting} size="md">
+            Log In
+          </Button>
+          <Flex justifyContent="center" alignItems="center" gap={4}>
+            <Text>
+              Don't have an account?{" "}
+              <RouterLink to="/signup" className="main-link">
+                Sign Up
+              </RouterLink>
+            </Text>
+            <Text 
+              p={2} 
+              borderWidth={1} 
+              borderRadius="md" 
+              _hover={{ bg: "gray.50" }}
+              textAlign="center"
+            >
+              <RouterLink to="/demo" className="main-link">
+                Try Demo
+              </RouterLink>
+            </Text>
+          </Flex>
+          <Flex
+            w="100%"
+            justifyContent="center"
+            alignItems="center"
+            cursor="pointer"
+          >
+            <RouterLink to="/recover-password" className="main-link">
+              Forgot Password?
+            </RouterLink>
+          </Flex>
+        </Container>
+      </Flex>
     </>
   )
 }
+
+export default Login

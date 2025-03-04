@@ -121,12 +121,14 @@ function SignUp() {
           <Button variant="solid" type="submit" loading={isSubmitting}>
             Sign Up
           </Button>
-          <Text>
-            Already have an account?{" "}
-            <RouterLink to="/login" className="main-link">
-              Log In
-            </RouterLink>
-          </Text>
+          <Flex justifyContent="center" alignItems="center">
+            <Text>
+              Already have an account?{" "}
+              <RouterLink to="/login" className="main-link">
+                Log In
+              </RouterLink>
+            </Text>
+          </Flex>
         </Container>
       </Flex>
     </>
