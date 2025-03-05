@@ -32,8 +32,8 @@ function LandingPage() {
       {/* Hero Section */}
       <Box bg="blue.50" pt={20} pb={32}>
         <Container maxW="6xl">
-          <Stack direction={{ base: 'column', md: 'row' }} spacing={12} align="center">
-            <VStack align="flex-start" spacing={6} flex={1}>
+          <Stack direction={{ base: 'column', md: 'row' }} align="center">
+            <VStack align="flex-start" flex={1}>
               <Heading as="h1" size="2xl" fontWeight="bold">
                 Modern Full-Stack Application with FastAPI and React
               </Heading>
@@ -41,9 +41,9 @@ function LandingPage() {
                 A production-ready template built with FastAPI, React, TypeScript, and SQLAlchemy. 
                 User management, authentication, and API integration out of the box.
               </Text>
-              <Stack direction={{ base: 'column', sm: 'row' }} spacing={4}>
+              <Stack direction={{ base: 'column', sm: 'row' }}>
                 <RouterLink to="/signup">
-                  <Button size="lg" colorScheme="blue" rightIcon={<FiArrowRight />}>
+                  <Button size="lg" colorScheme="blue">
                     Get Started
                   </Button>
                 </RouterLink>
@@ -77,15 +77,15 @@ function LandingPage() {
       {/* Features Section */}
       <Box py={20}>
         <Container maxW="6xl">
-          <VStack spacing={16}>
-            <VStack spacing={4} textAlign="center">
+          <VStack>
+            <VStack textAlign="center">
               <Heading as="h2" size="xl">Powerful Features</Heading>
               <Text color="gray.600" maxW="2xl">
                 This template offers a complete foundation for building modern web applications with batteries included.
               </Text>
             </VStack>
             
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }}>
               <FeatureCard 
                 icon={<FiUsers />}
                 title="User Management"
@@ -118,9 +118,9 @@ function LandingPage() {
               />
             </SimpleGrid>
             
-            <VStack spacing={6} pt={8}>
+            <VStack pt={8}>
               <Heading as="h3" size="lg">Why Choose Our Template?</Heading>
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4} maxW="4xl">
+              <SimpleGrid columns={{ base: 1, md: 2 }} maxW="4xl">
                 <FeatureItem text="Production ready configuration" />
                 <FeatureItem text="Dockerized development environment" />
                 <FeatureItem text="Type-safe API clients" />
@@ -138,12 +138,12 @@ function LandingPage() {
       {/* CTA Section */}
       <Box bg="blue.700" py={16} color="white">
         <Container maxW="4xl" textAlign="center">
-          <VStack spacing={8}>
+          <VStack>
             <Heading size="xl">Ready to build your next project?</Heading>
             <Text fontSize="lg">
               Get started with our template and focus on building your features, not infrastructure.
             </Text>
-            <Stack direction={{ base: 'column', sm: 'row' }} spacing={4}>
+            <Stack direction={{ base: 'column', sm: 'row' }}>
               <RouterLink to="/signup">
                 <Button size="lg" colorScheme="blue" bg="white" color="blue.700" _hover={{ bg: 'gray.100' }}>
                   Create an Account
@@ -162,8 +162,8 @@ function LandingPage() {
       {/* Footer */}
       <Box as="footer" py={16} bg="gray.50" borderTop="1px" borderColor="gray.200">
         <Container maxW="6xl">
-          <Stack direction={{ base: 'column', md: 'row' }} spacing={8} justify="space-between">
-            <VStack align="flex-start" spacing={4}>
+          <Stack direction={{ base: 'column', md: 'row' }} justify="space-between">
+            <VStack align="flex-start">
               <Flex align="center">
                 <Image src={Logo} alt="FastAPI logo" h="30px" mr={2} />
                 <Text fontWeight="bold">FastAPI Fullstack</Text>
@@ -176,22 +176,22 @@ function LandingPage() {
               </Text>
             </VStack>
             
-            <Stack direction={{ base: 'column', sm: 'row' }} spacing={{ base: 8, sm: 12 }}>
-              <VStack align="flex-start" spacing={3}>
+            <Stack direction={{ base: 'column', sm: 'row' }}>
+              <VStack align="flex-start">
                 <Text fontWeight="bold">Product</Text>
                 <Link>Features</Link>
                 <Link>Pricing</Link>
                 <Link>Documentation</Link>
               </VStack>
               
-              <VStack align="flex-start" spacing={3}>
+              <VStack align="flex-start">
                 <Text fontWeight="bold">Resources</Text>
                 <Link>Blog</Link>
                 <Link>Guides</Link>
                 <Link>Support</Link>
               </VStack>
               
-              <VStack align="flex-start" spacing={3}>
+              <VStack align="flex-start">
                 <Text fontWeight="bold">Company</Text>
                 <Link>About</Link>
                 <Link>Careers</Link>
@@ -207,8 +207,7 @@ function LandingPage() {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
   return (
-    <VStack 
-      spacing={4} 
+    <VStack  
       p={6} 
       bg="white" 
       boxShadow="sm" 
